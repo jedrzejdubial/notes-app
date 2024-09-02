@@ -35,12 +35,10 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <main className="p-0">
-          <div className="flex p-4 gap-8">
-            <aside className="max-w-36 h-screen max-h-screen">
-              <div className="flex flex-col">
-                <h5>@username</h5>
-                <ThemeToggle />
-              </div>
+          <div className="flex p-4">
+            <aside className="w-[12.5%] h-screen max-h-screen">
+              <h5>@username</h5>
+              <ThemeToggle />
             </aside>
 
             {children}
