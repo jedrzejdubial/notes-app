@@ -10,7 +10,7 @@ export default function Block({ type, text, placeholder }: { type?: string, text
   function createBlock(type: string, text: string, placeholder: string) {
     const props = {
       contentEditable: true,
-      onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => handleKeyDown(e, placeholder),
+      onKeyDown: (e: React.KeyboardEvent<HTMLElement>) => handleKeyDown(e, type, placeholder),
       // Apply style if textContent is placeholder
       className: text === null ? "" : "pl"
     };
@@ -31,16 +31,21 @@ export default function Block({ type, text, placeholder }: { type?: string, text
     }
   }
 
-  function handleKeyDown(e: React.KeyboardEvent<HTMLElement>, placeholder: string) {
+  function handleKeyDown(e: React.KeyboardEvent<HTMLElement>, type: string, placeholder: string) {
     const el = e.currentTarget;
 
     switch(e.key) {
       case "Backspace":
-        // If there's no text, use placeholder
+        // If textContent is empty, use placeholder
         if(el.textContent.length === 1) {
-          e.preventDefault();
           el.textContent = placeholder;
           el.classList.add("pl");
+        // If textContent is placeholder, remove element
+        } else if(el.textContent === placeholder && el.classList.contains("pl") && type !== "title") {
+          el.remove();
+        // Make sure title can't be edited
+        } else if(type === "title") {
+          e.preventDefault();
         }
         break;
       default:
