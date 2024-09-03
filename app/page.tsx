@@ -2,11 +2,11 @@ import Block from './components/Block'
 
 export default function Home() {
   return (
-    <div>
-      <Block type="title" text="Untitled" />
-      <Block type="h1" text="hi mom" />
-      <Block type="h2" text="hi mom" />
-      <Block type="h3" text="hi mom" />
+    <div className="w-[87.5%] max-w-[87.5%]">
+      <Block type="title" placeholder="Untitled" />
+      <Block type="h1" placeholder="Heading 1" />
+      <Block type="h2" placeholder="Heading 2" />
+      <Block type="h3" placeholder="Heading 3" />
       <Block />
     </div>
   );

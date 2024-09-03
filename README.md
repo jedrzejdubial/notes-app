@@ -4,7 +4,7 @@ notes.app is a simple application for notetaking.
 
 ## Roadmap
 
-- [ ] Writing functionality
+- [x] Writing functionality
 - [ ] Commands
 - [ ] Save and create new notes
 - [ ] Simple settings

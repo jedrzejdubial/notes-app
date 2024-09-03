@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Placeholder */
+.pl {
+    opacity: 0.3;
+}
